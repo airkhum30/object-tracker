@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <title>Object Tracker</title>
+    <style>
+        #processing-status {
+            color: orange;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Video for Object Tracking</h1>
+    <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="video" accept="video/*" id="fileInput" onchange="previewFile()">
+        <input type="submit" value="Upload and Process">
+    </form>
+    <!-- Display preview of selected file -->
+    <div id="preview"></div>
+    <!-- Show processing status -->
+    <div id="processing-status" style="display: none;">Processing...</div>
+    {% if show_results %}
+        <hr>
+        <h2>Live Processed Video Stream</h2>
+        <img src="{{ url_for('stream_video', filename=filename) }}" width="720" />
+        <h2>Download Results</h2>
+        <ul>
+            <li><a href="{{ url_for('download', filename=annotated_video) }}">Download Annotated Video</a></li>
+            <li><a href="{{ url_for('download', filename=csv_file) }}">Download Detection CSV</a></li>
+        </ul>
+        <p>Status: Video has been processed and the annotated video is available for download.</p>
+    {% endif %}
+</body>
+<script>
+    function previewFile() {
+        const file = document.querySelector('#fileInput').files[0];
+        const preview = document.querySelector('#preview');
+        const reader = new FileReader();
+        reader.onloadend = function () {
+            const videoElement = document.createElement('video');
+            videoElement.setAttribute('width', '640');
+            videoElement.setAttribute('height', '480');
+            videoElement.setAttribute('controls', true);
+            videoElement.setAttribute('autoplay', true);
+            videoElement.src = reader.result;
+            preview.innerHTML = '';
+            preview.appendChild(videoElement);
+            document.getElementById('processing-status').style.display = 'block';
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+</html>

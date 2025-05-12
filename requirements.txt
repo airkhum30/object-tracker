@@ -1,0 +1,8 @@
+flask>=2.2.5
+opencv-python>=4.5.5
+numpy>=1.21.0
+ultralytics>=8.0.0  # For YOLOv8
+Pillow>=9.0.0       # Required for image handling (used by Flask or GUI)
+scikit-image
+filterpy
+# git+https://github.com/abewley/sort.git
