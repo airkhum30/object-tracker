@@ -129,16 +129,18 @@ Copy
 Edit
 object-tracker/
 │
-├── app.py                # Flask app entry point
-├── tracking_util.py      # Object tracking and detection logic
-├── requirements.txt      # Python dependencies
-├── Dockerfile            # Docker configuration for deployment
-├── .gitignore            # Git ignore rules
-├── template/             # HTML templates for UI
-│   └── index.html        # Main UI page
-├── static/               # Static assets (e.g., CSS, JS, images)
-│   └── style.css         # Custom styles
-└── results/              # Folder for storing processed video results
+├── app.py # Flask app entry point
+├── tracking_util.py # Object tracking and detection logic
+├── requirements.txt # Python dependencies
+├── Dockerfile # Docker configuration for deployment
+├── .gitignore # Git ignore rules
+├── template/ # HTML templates for UI
+│ └── index.html # Main UI page
+├── static/ # Static assets (e.g., CSS, JS, images)
+│ └── style.css # Custom styles
+└── results/ # Folder for storing processed video results
+
+
 
 **Running with Docker**
 To run the application in a Docker container, follow these steps:
