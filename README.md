@@ -126,15 +126,23 @@ The processed video or results will be saved in the results/ folder. You can vie
 Folder Structure
 
 object-tracker/
+  
   app.py # Flask app entry point
+  
   tracking_util.py # Object tracking and detection logic
+  
   requirements.txt # Python dependencies
+  
 Dockerfile # Docker configuration for deployment
+
 .gitignore # Git ignore rules
+
 template/ # HTML templates for UI
     index.html # Main UI page
+  
 static/ # Static assets (e.g., CSS, JS, images)
   Uploads/ # Input file eg. video.mp4
+  
 results/ # Folder for storing processed video results
 
 
