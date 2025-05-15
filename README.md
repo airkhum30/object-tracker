@@ -127,50 +127,38 @@ Folder Structure
 
 object-tracker/
   
-  app.py # Flask app entry point
+  app.py              #Flask app entry point
   
-  tracking_util.py # Object tracking and detection logic
+  tracking_util.py    #Object tracking and detection logic
   
-  requirements.txt # Python dependencies
+  requirements.txt    #Python dependencies
   
-Dockerfile # Docker configuration for deployment
+Dockerfile            #Docker configuration for deployment
 
-.gitignore # Git ignore rules
+.gitignore            #Git ignore rules
 
-template/ # HTML templates for UI
-    index.html # Main UI page
+template/             #HTML templates for UI
+    index.html        #Main UI page
   
-static/ # Static assets (e.g., CSS, JS, images)
-  Uploads/ # Input file eg. video.mp4
+static/               #Static assets (e.g., CSS, JS, images)
+  Uploads/            #Input file eg. video.mp4
   
-results/ # Folder for storing processed video results
+results/              #Folder for storing processed video results
 
 
 
-**Running with Docker**
+**Running with Docker** 
 To run the application in a Docker container, follow these steps:
 
-**Build the Docker image:**
+**Build the Docker image:** docker build -t object-tracker .
+:
+**Run the Docker container** Docker run -p 5000:5000 object-tracker     #This will start the Flask app inside the Docker container, 
 
-bash
-Copy
-Edit
-docker build -t object-tracker .
-Run the Docker container:
+**You can access the app** http://localhost:5000/.
 
-bash
-Copy
-Edit
-docker run -p 5000:5000 object-tracker
-This will start the Flask app inside the Docker container, and you can access it at http://localhost:5000/.
+**Contributions** :  Feel free to fork the project and make improvements. If you have suggestions or bug fixes, create a pull request.
 
-Contributing
-Feel free to fork the project and make improvements. If you have suggestions or bug fixes, create a pull request.
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-Additional Notes
-Make sure to have the required dependencies installed, especially PyTorch and OpenCV, for object detection and tracking functionality.
+**Additional Notes**:  Make sure to have the required dependencies installed, especially PyTorch and OpenCV, for object detection and tracking functionality.
 
 For large video files, the app might take some time to process and track objects, depending on the system's performance.
